@@ -6,6 +6,8 @@ import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
 
+import java.util.concurrent.atomic.AtomicReference;
+
 public class MainActivity extends AppCompatActivity {
 
     @Override
@@ -15,13 +17,16 @@ public class MainActivity extends AppCompatActivity {
 
         String result = "";
 
+
         final EditText text = (EditText) findViewById(R.id.editText);
 
         Button but_1 =  (Button) findViewById(R.id.but_1);
         but_1.setOnClickListener(new View.OnClickListener() {
             //@Override
             public void onClick(View v) {
-                text.setText(text.getText()+"1");
+                String text_place;
+                text_place = text.getText().toString();
+                text.setText(text_place+"1");
             }
         });
 
