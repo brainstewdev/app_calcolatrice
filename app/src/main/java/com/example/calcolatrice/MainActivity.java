@@ -140,25 +140,36 @@ public class MainActivity extends AppCompatActivity {
                 String parte;
 
 
+                try{
+                    parte = text.getText().toString();
+                    String parti[] =  parte.split("\\+");
 
-                parte = text.getText().toString();
+                    //int lungh = parti.length();
+                    int parti_num[] = new int[parti.length];
+                    int somma = 0;
+                    if(parti.length != 0) {
 
-                String parti[] =  parte.split("\\+");
 
-                //int lungh = parti.length();
-                int parti_num[] = new int[parti.length];
-                int somma = 0;
+                        for (int x = 0; x < parti.length; x++) {
+                            parti_num[x] = Integer.parseInt(parti[x]);
 
-                for(int x = 0; x < parti.length; x++){
-                    parti_num[x] = Integer.parseInt(parti[x]);
+                            somma = somma + parti_num[x];
+                        }
+                        //text_place = text.getText().toString();
+                        risultato = Integer.toString(somma);
 
-                    somma = somma+parti_num[x];
+
+                        text.setText(risultato);
+                    }
+                    else{
+                        text.setText("0");
+                    }
+                }catch (Exception e){
+                    text.setText("0");
                 }
-                //text_place = text.getText().toString();
-                risultato = Integer.toString(somma);
 
 
-                text.setText(risultato);
+
             }
         });
 
